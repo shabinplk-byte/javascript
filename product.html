@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Product Search</h2>
+
+<input id="search" placeholder="Search product">
+
+<div id="result"></div>
+
+<script>
+let products = [
+    {name: "T-Shirt", category: "Clothing", price: 500},
+    {name: "Shoes", category: "Footwear", price: 2500}
+];
+
+function show() {
+    let s = document.getElementById("search").value.toLowerCase();
+    document.getElementById("result").innerHTML = "";
+
+    products.forEach(p => {
+        if (p.name.toLowerCase().includes(s)) {
+            document.getElementById("result").innerHTML +=
+                `<h3>${p.name}</h3>
+                 <p>Category: ${p.category}</p>
+                 <p>Price: ₹${p.price}</p>`;
+        }
+    });
+}
+document.getElementById("search").addEventListener("input", show);
+show();
+</script>
+    
+</body>
+</html>
